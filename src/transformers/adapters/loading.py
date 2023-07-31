@@ -447,6 +447,14 @@ class AdapterLoader(WeightsLoader):
             config["config"]["leave_out"] = leave_out
 
         adapter_name = load_as or config["name"]
+
+        if not config['config']:
+
+            config['r'] = 64
+            config['lora_alpha'] = 16
+            config['lora_dropout'] = 0.1
+
+            config['config'] = config
         # If the adapter is not part of the model, add it
         if adapter_name not in self.model.config.adapters.adapters:
             self.model.add_adapter(adapter_name, config=config["config"], set_active=set_active)

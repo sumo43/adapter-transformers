@@ -126,6 +126,10 @@ _import_structure = {
         "T5AdapterModel",
         "T5ModelWithHeads",
     ],
+    "models.llama": [
+        "LlamaAdapterModel",
+        "LlamaModelWithHeads"
+    ],
     "models.vit": ["ViTAdapterModel"],
     "models.xlm_roberta": [
         "XLMRobertaAdapterModel",
@@ -207,6 +211,8 @@ if TYPE_CHECKING:
         ModelAdaptersMixin,
         ModelWithHeadsAdaptersMixin,
     )
+
+    from .models.llama import LlamaAdapterModel
     from .models.albert import AlbertAdapterModel
     from .models.auto import ADAPTER_MODEL_MAPPING, MODEL_WITH_HEADS_MAPPING, AutoAdapterModel, AutoModelWithHeads
     from .models.bart import BartAdapterModel, BartModelWithHeads
